@@ -63,14 +63,14 @@ public class PostLoginActivity extends AppCompatActivity {
             View view = inflater.inflate(R.layout.profile_dialog, null);
 
 
-            TextView textview = (TextView) view.findViewById(R.id.profileName);
+            TextView textview = view.findViewById(R.id.profileName);
             textview.setText(profileInfo.getDisplayName());
-            textview = (TextView) view.findViewById(R.id.profileMessage);
+            textview = view.findViewById(R.id.profileMessage);
             textview.setText(profileInfo.getStatusMessage());
-            textview = (TextView) view.findViewById(R.id.profileMid);
+            textview = view.findViewById(R.id.profileMid);
             textview.setText(profileInfo.getUserId());
             Uri pictureUrl = profileInfo.getPictureUrl();
-            textview = (TextView) view.findViewById(R.id.profileImageUrl);
+            textview = view.findViewById(R.id.profileImageUrl);
 
             // If the user's profile picture is not set, the picture url will be null.
             if (pictureUrl != null) {
@@ -117,7 +117,7 @@ public class PostLoginActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Bitmap bitmap) {
-            ImageView profileImageView = (ImageView) findViewById(R.id.profileImageView);
+            ImageView profileImageView = findViewById(R.id.profileImageView);
             profileImageView.setImageBitmap(bitmap);
             unlockScreenOrientation();
         }
@@ -143,7 +143,7 @@ public class PostLoginActivity extends AppCompatActivity {
                 String updatedAccessToken = lineApiClient.getCurrentAccessToken().getResponseData().getAccessToken();
 
                 // Update the view
-                TextView accessTokenField = (TextView) findViewById(R.id.accessTokenField);
+                TextView accessTokenField = findViewById(R.id.accessTokenField);
                 accessTokenField.setText(updatedAccessToken);
                 Toast.makeText(getApplicationContext(), "Access Token has been refreshed.", Toast.LENGTH_SHORT).show();
             } else {
@@ -245,7 +245,7 @@ public class PostLoginActivity extends AppCompatActivity {
         lineApiClient = apiClientBuilder.build();
 
         // Profile Button Click Listener
-        final Button profileButton = (Button) findViewById(R.id.profileButton);
+        final Button profileButton = findViewById(R.id.profileButton);
 
         profileButton.setOnClickListener(new View.OnClickListener() {
 
@@ -256,7 +256,7 @@ public class PostLoginActivity extends AppCompatActivity {
 
 
         // Refresh Button Click Listener
-        final Button refreshButton = (Button) findViewById(R.id.refreshButton);
+        final Button refreshButton = findViewById(R.id.refreshButton);
         refreshButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -267,7 +267,7 @@ public class PostLoginActivity extends AppCompatActivity {
         });
 
         // Verify Button Click Listener
-        final Button verifyButton = (Button) findViewById(R.id.verifyButton);
+        final Button verifyButton = findViewById(R.id.verifyButton);
         verifyButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -278,7 +278,7 @@ public class PostLoginActivity extends AppCompatActivity {
         });
 
         // Logout Button Click Listener
-        final Button logoutButton = (Button) findViewById(R.id.logoutButton);
+        final Button logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -294,7 +294,7 @@ public class PostLoginActivity extends AppCompatActivity {
         LineProfile intentProfile = intent.getParcelableExtra("line_profile");
         LineCredential intentCredential = intent.getParcelableExtra("line_credential");
 
-        ImageView profileImageView = (ImageView) findViewById(R.id.profileImageView);
+        ImageView profileImageView = findViewById(R.id.profileImageView);
         Uri pictureUrl = intentProfile.getPictureUrl();
 
         if (pictureUrl != null) {
@@ -304,16 +304,16 @@ public class PostLoginActivity extends AppCompatActivity {
 
         TextView profileText;
 
-        profileText = (TextView) findViewById(R.id.displayNameField);
+        profileText = findViewById(R.id.displayNameField);
         profileText.setText(intentProfile.getDisplayName());
 
-        profileText = (TextView) findViewById(R.id.userIDField);
+        profileText = findViewById(R.id.userIDField);
         profileText.setText(intentProfile.getUserId());
 
-        profileText = (TextView) findViewById(R.id.statusMessageField);
+        profileText = findViewById(R.id.statusMessageField);
         profileText.setText(intentProfile.getUserId());
 
-        profileText = (TextView) findViewById(R.id.accessTokenField);
+        profileText = findViewById(R.id.accessTokenField);
         profileText.setText(intentCredential.getAccessToken().getAccessToken());
 
     }

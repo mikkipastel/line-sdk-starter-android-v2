@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView a2aButton = (TextView) findViewById(R.id.login_button);
+        final TextView a2aButton = findViewById(R.id.login_button);
         a2aButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final TextView browserLoginButton = (TextView) findViewById(R.id.browser_login_button);
+        final TextView browserLoginButton = findViewById(R.id.browser_login_button);
         browserLoginButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
